@@ -1,6 +1,6 @@
 # DriveFleet — Premium Car Rental Platform
 
-🔗 **Live Site:** [https://drivefleet-client-kappa.vercel.app/](https://drivefleet-client.vercel.app)
+🔗 **Live Site:** [https://drivefleet-client-kappa.vercel.app/]
 
 ## About DriveFleet
 
