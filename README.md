@@ -1,6 +1,6 @@
 # DriveFleet — Premium Car Rental Platform
 
-🔗 **Live Site:** [https://drivefleet-client.vercel.app](https://drivefleet-client.vercel.app)
+🔗 **Live Site:** [https://drivefleet-client-kappa.vercel.app/](https://drivefleet-client.vercel.app)
 
 ## About DriveFleet
 
@@ -50,7 +50,7 @@ git clone <your-client-repo-url>
 cd drivefleet-client
 npm install
 cp .env.example .env
-# Fill in your Firebase config in .env
+# Fill Firebase config in .env
 npm run dev
 ```
 
@@ -68,6 +68,6 @@ VITE_FIREBASE_APP_ID=your_app_id
 ## Deployment
 
 - **Client:** Deployed on [Vercel](https://vercel.com)
-- **Server:** Deployed on [Render](https://render.com)
+- **Server:** Deployed on [vercel](https://vercel.com)
 
 
