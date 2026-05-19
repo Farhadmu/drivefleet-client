@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axiosSecure from "../../utils/axiosSecure";
 import { useAuth } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 import { MdDirectionsCar } from "react-icons/md";
+import axios from "axios";
 
 const CAR_TYPES = ["SUV", "Sedan", "Hatchback", "Luxury", "Convertible", "Electric", "Pickup"];
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 const AddCar = () => {
   const { user } = useAuth();
@@ -31,10 +32,13 @@ const AddCar = () => {
     };
 
     try {
-      await axiosSecure.post("/cars", carData);
+      await axios.post(`${API_URL}/cars`, carData, {
+        withCredentials: true,
+      });
       toast.success("Car listed successfully!");
       navigate("/my-added-cars");
-    } catch {
+    } catch (err) {
+      console.error(err);
       toast.error("Failed to add car. Please try again.");
     } finally {
       setLoading(false);
@@ -44,7 +48,6 @@ const AddCar = () => {
   return (
     <div className="min-h-screen bg-dark py-12">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="mb-10">
           <div className="flex items-center gap-2 mb-3">
             <div className="h-px w-8 bg-primary" />
@@ -121,7 +124,7 @@ const AddCar = () => {
             />
           </div>
 
-          {/* Owner info (read-only) */}
+          {/* Owner info */}
           <div className="flex items-center gap-3 p-4 bg-dark border border-dark-border">
             <img
               src={user?.photoURL || `https://ui-avatars.com/api/?name=${user?.displayName}&background=E63946&color=fff`}
